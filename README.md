@@ -21,3 +21,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT17 Main Menu Screens
 * BT18 UI Scale Box, Buttons & Mouse
 * BT19 Controller Ready Navigation
+* BT20 Trial Packaging Your Game
