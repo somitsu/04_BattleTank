@@ -30,3 +30,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT26 Get the Player Controller with C++
 * BT27 Add Tick() to PlayerController
 * BT28 Creating an Out Parameter Method
+* BT29 Finding Screen Pixel Coordinates
