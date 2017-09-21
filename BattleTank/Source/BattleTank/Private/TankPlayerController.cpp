@@ -72,7 +72,9 @@ bool ATankPlayerController::getSightRayHitLocation(FVector &outHitLocation) cons
 
 	if (getLookDirection(screenLocation, OUT lookDirection))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("world direction: %s"), *lookDirection.ToString());
+
+		getLookVectorHitLocation(lookDirection, outHitLocation);
+		UE_LOG(LogTemp, Warning, TEXT("hit location: %s"), *outHitLocation.ToString())
 	}
 
 	outHitLocation = FVector(1.0f);
@@ -84,6 +86,30 @@ bool ATankPlayerController::getLookDirection(FVector2D screenLocation, FVector &
 {
 	FVector cameraWorldLocation;
 	return (DeprojectScreenPositionToWorld(screenLocation.X, screenLocation.Y, cameraWorldLocation, outLookDirection));
-	
+}
+
+bool ATankPlayerController::getLookVectorHitLocation(FVector lookDirection, FVector &outHitLocation) const
+{
+	FHitResult lineTraceHit;
+	FVector startLocation = PlayerCameraManager->GetCameraLocation();
+	FVector endLocation = startLocation + lookDirection*lineTraceRange;
+
+	if (GetWorld()->LineTraceSingleByChannel(
+			OUT lineTraceHit,
+			startLocation,
+			endLocation,
+			ECollisionChannel::ECC_Visibility
+		))
+	{ 
+		outHitLocation = lineTraceHit.Location;
+		return true; 
+	}
+	else 
+	{ 
+		outHitLocation = FVector(0.0f);
+		return false; 
+	}
+
+
 
 }
