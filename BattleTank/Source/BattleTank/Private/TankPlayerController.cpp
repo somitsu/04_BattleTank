@@ -13,9 +13,6 @@ void ATankPlayerController::BeginPlay()
 	UE_LOG(LogTemp, Warning, TEXT("playerController begin play"));
 
 	if (controlledTank)	{ UE_LOG(LogTemp, Warning, TEXT("controlled tank: %s"), *controlledTank->GetName()); }
-	else 
-	{
-		UE_LOG(LogTemp, Warning, TEXT("grabbed NADA!!")); 
-	}
+	else { UE_LOG(LogTemp, Warning, TEXT("grabbed NADA!!")); }
 
 }
