@@ -27,3 +27,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT23 Dynamic vs Static Polymorphism
 * BT24 Dynamic Polymorphism & Vtables
 * BT25 Creating an AI Controller Class
+* BT26 Get the Player Controller with C++
