@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
+#define OUT
 
 
 void ATankPlayerController::BeginPlay()
@@ -20,7 +21,7 @@ void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	aimTowardsCrosshair();
-	UE_LOG(LogTemp, Warning, TEXT("Ticking!!!"));
+	//UE_LOG(LogTemp, Warning, TEXT("Ticking!!!"));
 
 
 	return;
@@ -32,6 +33,35 @@ ATank * ATankPlayerController::getControlledTank() const { return Cast<ATank>(Ge
 void ATankPlayerController::aimTowardsCrosshair()
 {
 	if (!getControlledTank()) { return; }
+	
+	FVector hitLocation; //Out parameter
+	if (getSightRayHitLocation(OUT hitLocation))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("%s"), *hitLocation.ToString());
+	}
+
+
 
 	return;
+}
+
+bool ATankPlayerController::getSightRayHitLocation(FVector &outHitLocation) const
+{
+	//if (!GetWorld()->GetFirstPlayerController())
+	//{
+	//	return false;
+	//}
+	//
+	//FVector playerViewLocation;
+	//FRotator playerViewRotator;
+	//
+	//GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+	//	OUT playerViewLocation,
+	//	OUT playerViewRotator
+	//);
+
+	//return true;
+
+	outHitLocation = FVector(1.0f);
+	return true;
 }

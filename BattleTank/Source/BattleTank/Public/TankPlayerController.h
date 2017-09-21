@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "Tank.h"
+#include "Engine/World.h"
 #include "TankPlayerController.generated.h"
 
 /**
@@ -22,5 +23,10 @@ public:
 
 	ATank * getControlledTank() const;
 	void aimTowardsCrosshair();
+
+private:
+
+	bool getSightRayHitLocation(FVector &outHitLocation) const;
+
 
 };
