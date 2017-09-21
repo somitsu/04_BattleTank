@@ -28,3 +28,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT24 Dynamic Polymorphism & Vtables
 * BT25 Creating an AI Controller Class
 * BT26 Get the Player Controller with C++
+* BT27 Add Tick() to PlayerController

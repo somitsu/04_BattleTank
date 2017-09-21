@@ -3,8 +3,6 @@
 #include "TankPlayerController.h"
 
 
-ATank * ATankPlayerController::getControlledTank() const { return Cast<ATank>(GetPawn()); }
-
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -15,4 +13,25 @@ void ATankPlayerController::BeginPlay()
 	if (controlledTank)	{ UE_LOG(LogTemp, Warning, TEXT("controlled tank: %s"), *controlledTank->GetName()); }
 	else { UE_LOG(LogTemp, Warning, TEXT("grabbed NADA!!")); }
 
+	return;
+}
+
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	aimTowardsCrosshair();
+	UE_LOG(LogTemp, Warning, TEXT("Ticking!!!"));
+
+
+	return;
+}
+
+
+ATank * ATankPlayerController::getControlledTank() const { return Cast<ATank>(GetPawn()); }
+
+void ATankPlayerController::aimTowardsCrosshair()
+{
+	if (!getControlledTank()) { return; }
+
+	return;
 }
