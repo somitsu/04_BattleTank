@@ -37,31 +37,14 @@ void ATankPlayerController::aimTowardsCrosshair()
 	FVector hitLocation; //Out parameter
 	if (getSightRayHitLocation(OUT hitLocation))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("%s"), *hitLocation.ToString());
+		//UE_LOG(LogTemp, Warning, TEXT("debug: %s"), *hitLocation.ToString())
+		getControlledTank()->aimAt(hitLocation);
 	}
-
-
-
 	return;
 }
 
 bool ATankPlayerController::getSightRayHitLocation(FVector &outHitLocation) const
 {
-	//if (!GetWorld()->GetFirstPlayerController())
-	//{
-	//	return false;
-	//}
-	//
-	//FVector playerViewLocation;
-	//FRotator playerViewRotator;
-	//
-	//GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
-	//	OUT playerViewLocation,
-	//	OUT playerViewRotator
-	//);
-
-	//return true;
-
 	int32 viewportSizeX, viewportSizeY;
 	FVector2D screenLocation;
 	FVector lookDirection;
@@ -74,10 +57,9 @@ bool ATankPlayerController::getSightRayHitLocation(FVector &outHitLocation) cons
 	{
 
 		getLookVectorHitLocation(lookDirection, outHitLocation);
-		UE_LOG(LogTemp, Warning, TEXT("hit location: %s"), *outHitLocation.ToString())
+		//UE_LOG(LogTemp, Warning, TEXT("hit location: %s"), *outHitLocation.ToString())
 	}
 
-	outHitLocation = FVector(1.0f);
 	return true;
 }
 
