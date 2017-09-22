@@ -15,6 +15,9 @@ class BATTLETANK_API ATank : public APawn
 public:
 	void aimAt( FVector hitLocation );
 
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void setBarrelReference(UStaticMeshComponent* barrelToSet);
+
 protected:
 	UTankAimingComponent* tankAimingComponent = nullptr;
 
