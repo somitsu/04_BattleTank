@@ -34,6 +34,7 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT30 Using DeprojectScreenToWorld
 * BT31 Using LineTraceSingleByChannel()
 * BT32 Unify Player & AI Aiming
-* BT33 Create Default Sub Objects in C++
+* BT33 Create Default Sub Objects in C++s
 * BT34 BlueprintCallable()
 * BT35 SuggestProjectileVelocity()
+* BT36 Predict Projectile Landing Point
