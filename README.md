@@ -36,3 +36,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT32 Unify Player & AI Aiming
 * BT33 Create Default Sub Objects in C++
 * BT34 BlueprintCallable()
+* BT35 SuggestProjectileVelocity()
