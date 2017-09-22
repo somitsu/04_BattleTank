@@ -43,3 +43,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT39 BlueprintSpawnableComponent()
 * BT40 The C++ Compilation Process
 * BT41 Review Our Execution Flow
+* BT42 How to Report Bugs
