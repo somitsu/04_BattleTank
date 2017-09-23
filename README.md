@@ -46,3 +46,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT42 How to Report Bugs
 * BT43 Using Clamp() to Limit Values
 * BT44 CHALLENGE - Turret Rotation
+* BT45 CHALLENGE - Turret Rotation Pt.2
