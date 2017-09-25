@@ -9,6 +9,7 @@
 class UTankAimingComponent;
 class UTankBarrel;
 class UTankTurret;
+class UTankTrack;
 class Aprojectile;
 
 
@@ -24,6 +25,10 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void setTurretReference(UTankTurret* turretToSet);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void setTrackReference(UTankTrack * rightTrackToSet, UTankTrack * leftTrackToSet);
+
 
 	UFUNCTION(BlueprintCallable)
 	void fire();
@@ -54,7 +59,11 @@ private:
 
 	UTankBarrel * barrel = nullptr;
 
-	
+	UTankTrack * leftTrack = nullptr;
+	UTankTrack * rightTrack = nullptr;
+
+
+
 	double lastFireTime = 0.0;
 
 };

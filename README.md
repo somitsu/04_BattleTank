@@ -55,3 +55,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT51 Making AI Tanks Fire
 * BT52 EditAnywhere vs EditDefaultsOnly
 * BT53 Adding a Quit Button
+* BT54 Setup Track Throttles
