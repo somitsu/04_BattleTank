@@ -54,3 +54,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT50 Projectile Movement Components
 * BT51 Making AI Tanks Fire
 * BT52 EditAnywhere vs EditDefaultsOnly
+* BT53 Adding a Quit Button
