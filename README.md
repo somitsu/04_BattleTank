@@ -48,3 +48,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT44 CHALLENGE - Turret Rotation
 * BT45 CHALLENGE - Turret Rotation Pt.2
 * BT46 Setting Up Projectiles
+* BT47 Upgrading to Unreal 4.12
