@@ -3,9 +3,10 @@
 #include "TankMovementComponent.h"
 #include "TankTrack.h"
 
+
+
 void UTankMovementComponent::initialize(UTankTrack * leftTrackToSet, UTankTrack * rightTrackToSet)
 {
-	if (!leftTrackToSet || !rightTrackToSet) { return; }
 	leftTrack = leftTrackToSet;
 	rightTrack = rightTrackToSet;
 
@@ -13,11 +14,15 @@ void UTankMovementComponent::initialize(UTankTrack * leftTrackToSet, UTankTrack 
 
 void UTankMovementComponent::intendMoveForward(float Throw)
 {
-	
-	UE_LOG(LogTemp, Warning, TEXT("intend move forward Throw: %f"), Throw);
-
+	if (!leftTrack || !rightTrack) { return; }
 	leftTrack->setThrottle(Throw);
 	rightTrack->setThrottle(Throw);
 	
 }
 
+void UTankMovementComponent::intendTurnRight(float Throw)
+{
+	if (!leftTrack || !rightTrack) { return; }
+	leftTrack->setThrottle(Throw);
+	rightTrack->setThrottle(-Throw);
+}
