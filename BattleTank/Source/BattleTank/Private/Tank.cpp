@@ -33,9 +33,11 @@ void ATank::setTrackReference(UTankTrack * rightTrackToSet, UTankTrack * leftTra
 void ATank::fire()
 {
 	//UE_LOG(LogTemp, Warning, TEXT("Firing!!!"));
+
+	if (!ensure(barrel)) { return; }
 	bool isReloaded = (FPlatformTime::Seconds() - lastFireTime) > reloadTimeInSeconds;
 
-	if (barrel && isReloaded)
+	if (isReloaded)
 	{
 		auto projectile = GetWorld()->SpawnActor<Aprojectile>(
 			projectileBlueprint,
@@ -74,7 +76,7 @@ void ATank::BeginPlay()
 
 void ATank::aimAt(FVector hitLocation)
 {
-	if (!tankAimingComponent) { return; }
+	if (!ensure(tankAimingComponent)) { return; }
 	tankAimingComponent->aimAt(hitLocation, launchSpeed);
 
 	return;

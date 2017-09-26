@@ -11,7 +11,7 @@ void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	auto aimingComponent = getControlledTank()->FindComponentByClass<UTankAimingComponent>();
-	if (aimingComponent)
+	if (ensure(aimingComponent))
 	{
 		foundAimingComponent(aimingComponent);
 		UE_LOG(LogTemp, Warning, TEXT("found"));
@@ -39,7 +39,7 @@ ATank * ATankPlayerController::getControlledTank() const { return Cast<ATank>(Ge
 
 void ATankPlayerController::aimTowardsCrosshair()
 {
-	if (!getControlledTank()) { return; }
+	if (!ensure(getControlledTank())) { return; }
 	
 	FVector hitLocation; //Out parameter
 	if (getSightRayHitLocation(OUT hitLocation))

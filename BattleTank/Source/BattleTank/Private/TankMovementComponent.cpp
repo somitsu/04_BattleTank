@@ -15,7 +15,7 @@ void UTankMovementComponent::initialize(UTankTrack * leftTrackToSet, UTankTrack 
 
 void UTankMovementComponent::intendMoveForward(float Throw)
 {
-	if (!leftTrack || !rightTrack) { return; }
+	if (!ensure(leftTrack && rightTrack)) { return; }
 	leftTrack->setThrottle(Throw);
 	rightTrack->setThrottle(Throw);
 	
@@ -23,7 +23,7 @@ void UTankMovementComponent::intendMoveForward(float Throw)
 
 void UTankMovementComponent::intendTurnRight(float Throw)
 {
-	if (!leftTrack || !rightTrack) { return; }
+	if (!ensure(leftTrack && rightTrack)) { return; }
 	leftTrack->setThrottle(Throw);
 	rightTrack->setThrottle(-Throw);
 }
