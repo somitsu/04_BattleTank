@@ -47,11 +47,7 @@ private:
 	// Sets default values for this pawn's properties
 	ATank();
 
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float launchSpeed = 4000.0f; // cm/s
@@ -64,8 +60,8 @@ private:
 
 	UTankBarrel * barrel = nullptr;
 
-	UTankTrack * leftTrack = nullptr;
-	UTankTrack * rightTrack = nullptr;
+	//UTankTrack * leftTrack = nullptr;
+	//UTankTrack * rightTrack = nullptr;
 
 
 
