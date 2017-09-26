@@ -2,6 +2,7 @@
 
 #include "TankPlayerController.h"
 #include "Tank.h"
+#include "TankAimingComponent.h"
 #include "Engine/World.h"
 #define OUT
 
@@ -9,6 +10,16 @@
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
+	auto aimingComponent = getControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	if (aimingComponent)
+	{
+		foundAimingComponent(aimingComponent);
+		UE_LOG(LogTemp, Warning, TEXT("found"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("EEEEEE"))
+	}
 
 	return;
 }

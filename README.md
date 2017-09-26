@@ -73,3 +73,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT69 Attaching a Debugger to Unreal
 * BT70 Constructor & Begin Play Timing
 * BT71 Decoupling Your Architecture
+* BT72 BlueprintImplementableEvent
