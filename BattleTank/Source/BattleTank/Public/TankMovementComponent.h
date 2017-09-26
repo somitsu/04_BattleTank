@@ -16,19 +16,24 @@ class BATTLETANK_API UTankMovementComponent : public UNavMovementComponent
 {
 	GENERATED_BODY()
 
+/////////////////////////////////// Methods ///////////////////////////////////
 public:
-	UFUNCTION(BlueprintCallable, Category = Input)
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void initialize(UTankTrack * leftTrackToSet, UTankTrack * rightTrackToSet);
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
 	void intendMoveForward(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = Input)
+	UFUNCTION(BlueprintCallable, Category = "Input")
 	void intendTurnRight(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void initialize(UTankTrack * leftTrackToSet, UTankTrack * rightTrackToSet);
+private:
 
 	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
 
 
+/////////////////////////////////// Variables ///////////////////////////////////
 private:
 	UTankTrack * leftTrack = nullptr;
 	UTankTrack * rightTrack = nullptr;
