@@ -65,3 +65,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT61 Introducing AI Pathfinding
 * BT62 Dissecting RequestDirectMove()
 * BT63 DotProduct() Vector Operator
+* BT64 CrossProduct() Vector Operator
