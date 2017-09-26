@@ -21,13 +21,13 @@ class BATTLETANK_API ATank : public APawn
 
 public:
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void setBarrelReference(UTankBarrel* barrelToSet);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void setTurretReference(UTankTurret* turretToSet);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void setTrackReference(UTankTrack * rightTrackToSet, UTankTrack * leftTrackToSet);
 
 
@@ -53,13 +53,13 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float launchSpeed = 4000.0f; // cm/s
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float reloadTimeInSeconds = 3.0f;
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<Aprojectile> projectileBlueprint;
 
 	UTankBarrel * barrel = nullptr;
