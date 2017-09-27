@@ -48,13 +48,16 @@ private:
 	void moveBarrelTowards(FVector aimDirection);
 	void moveTurretTowards(FVector aimDirection);
 
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+	virtual void BeginPlay() override;
+
 
 /////////////////////////////////// Variables ///////////////////////////////////
 public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
-	EFiringStatus firingStatus = EFiringStatus::aiming;
+	EFiringStatus firingStatus = EFiringStatus::reloading;
 
 private:
 
