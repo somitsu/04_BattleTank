@@ -78,3 +78,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT74 Dependency Mapping
 * BT75 Talking Head - Real World Skills
 * BT76 Starting From Green
+* BT77 Aiming Without the Tank

@@ -1,13 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Tank.h"
-#include "TankAimingComponent.h"
 #include "Engine/World.h"
 #include "projectile.h"
 #include "TankBarrel.h"
-#include "TankTurret.h"
 #include "TankTrack.h"
-//#include "TankMovementComponent.h"
 
 
 void ATank::setBarrelReference(UTankBarrel * barrelToSet)
@@ -16,24 +13,12 @@ void ATank::setBarrelReference(UTankBarrel * barrelToSet)
 	barrel = barrelToSet;
 }
 
-void ATank::setTurretReference(UTankTurret * turretToSet)
-{
-	//tankAimingComponent->setTurretReference(turretToSet);
-}
 
-void ATank::setTrackReference(UTankTrack * rightTrackToSet, UTankTrack * leftTrackToSet)
-{
-	//leftTrack = leftTrackToSet;
-	//rightTrack = rightTrackToSet;
-	return;
-}
 
 
 
 void ATank::fire()
 {
-
-	if (!ensure(barrel)) { return; }
 
 	//UE_LOG(LogTemp, Warning, TEXT("Firing!!!"));
 
@@ -69,7 +54,6 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("%s DONKEY: C++ BeginPlay"), *GetName());
-	tankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 
 
 
@@ -77,12 +61,3 @@ void ATank::BeginPlay()
 
 
 
-
-
-void ATank::aimAt(FVector hitLocation)
-{
-	if (!ensure(tankAimingComponent)) { return; }
-	tankAimingComponent->aimAt(hitLocation, launchSpeed);
-
-	return;
-}
