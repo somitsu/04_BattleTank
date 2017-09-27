@@ -22,10 +22,14 @@ protected:
 private:
 	UTankTrack();
 	virtual void BeginPlay() override;
-	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+	//virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+
+	void applySidewaysForce();
 
 	UFUNCTION()
 	virtual void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+
+	void driveTrack();
 
 /////////////////////////////////// Variables ///////////////////////////////////
 public:
@@ -35,6 +39,6 @@ public:
 protected:
 
 private:
-
+	float currentThrottle = 0.0f;
 
 };
