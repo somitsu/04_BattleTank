@@ -82,3 +82,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT78 Finishing our Refactoring
 * BT79 Adding TickComponent() Back
 * BT80 Are Two Floats Equal?
+* BT81 Programmatic Sideways Friction

@@ -20,14 +20,18 @@ public:
 protected:
 
 private:
+	UTankTrack();
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+
 
 /////////////////////////////////// Variables ///////////////////////////////////
 public:
 	UPROPERTY(EditDefaultsOnly)
-	float trackMaxDrivingForce = 400000.0f; //N
+	float trackMaxDrivingForce = 20000000.0f; //N
 
 protected:
 
 private:
+
 
 };
