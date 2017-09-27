@@ -51,7 +51,7 @@ void UTankAimingComponent::aimAt(FVector hitLocation)
 	);
 	if (bHaveAimSolution)
 	{
-		auto aimDirection = outLaunchVelocity.GetSafeNormal();
+		aimDirection = outLaunchVelocity.GetSafeNormal();
 		// move barrel
 		moveBarrelTowards(aimDirection);
 		moveTurretTowards(aimDirection);
@@ -83,17 +83,32 @@ void UTankAimingComponent::moveTurretTowards(FVector aimDirection)
 	return;
 }
 
-void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction)
+void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
-	if ((FPlatformTime::Seconds() - lastFireTime) > reloadTimeInSeconds)
+	if ((FPlatformTime::Seconds() - lastFireTime) < reloadTimeInSeconds)
 	{
 		firingStatus = EFiringStatus::reloading;
+	}
+	else if (isBarrelMoving())
+	{
+		firingStatus = EFiringStatus::aiming;
+	}
+	else
+	{
+		firingStatus = EFiringStatus::locked;
 	}
 }
 
 void UTankAimingComponent::BeginPlay()
 {
 	lastFireTime = FPlatformTime::Seconds();
+}
+
+bool UTankAimingComponent::isBarrelMoving()
+{
+	if (!ensure(barrel)) { return false; }
+	auto barrelForward = barrel->GetForwardVector();
+	return !barrelForward.Equals(aimDirection, 0.01f);
 }
 
 void UTankAimingComponent::fire()

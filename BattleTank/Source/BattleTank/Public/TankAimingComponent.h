@@ -48,9 +48,10 @@ private:
 	void moveBarrelTowards(FVector aimDirection);
 	void moveTurretTowards(FVector aimDirection);
 
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 	virtual void BeginPlay() override;
 
+	bool isBarrelMoving();
 
 /////////////////////////////////// Variables ///////////////////////////////////
 public:
@@ -74,5 +75,7 @@ private:
 	float reloadTimeInSeconds = 3.0f;
 
 	double lastFireTime = 0.0;
+
+	FVector aimDirection = FVector(0.0f);
 
 };
