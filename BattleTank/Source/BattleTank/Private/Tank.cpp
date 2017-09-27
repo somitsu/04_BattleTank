@@ -7,7 +7,7 @@
 #include "TankBarrel.h"
 #include "TankTurret.h"
 #include "TankTrack.h"
-#include "TankMovementComponent.h"
+//#include "TankMovementComponent.h"
 
 
 void ATank::setBarrelReference(UTankBarrel * barrelToSet)
