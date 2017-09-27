@@ -69,6 +69,8 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("%s DONKEY: C++ BeginPlay"), *GetName());
+	tankAimingComponent = FindComponentByClass<UTankAimingComponent>();
+
 
 
 }
