@@ -21,13 +21,16 @@ protected:
 
 private:
 	UTankTrack();
+	virtual void BeginPlay() override;
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
+	UFUNCTION()
+	virtual void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 
 /////////////////////////////////// Variables ///////////////////////////////////
 public:
 	UPROPERTY(EditDefaultsOnly)
-	float trackMaxDrivingForce = 20000000.0f; //N
+	float trackMaxDrivingForce = 25000000.0f; //N
 
 protected:
 
