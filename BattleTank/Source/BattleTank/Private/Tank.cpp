@@ -7,7 +7,7 @@
 #include "TankBarrel.h"
 #include "TankTurret.h"
 #include "TankTrack.h"
-#include "TankMovementComponent.h"
+//#include "TankMovementComponent.h"
 
 
 void ATank::setBarrelReference(UTankBarrel * barrelToSet)
@@ -36,6 +36,8 @@ void ATank::fire()
 	if (!ensure(barrel)) { return; }
 
 	//UE_LOG(LogTemp, Warning, TEXT("Firing!!!"));
+
+	if (!ensure(barrel)) { return; }
 	bool isReloaded = (FPlatformTime::Seconds() - lastFireTime) > reloadTimeInSeconds;
 
 	if (isReloaded)
