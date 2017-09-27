@@ -15,14 +15,20 @@ class BATTLETANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
 
+/////////////////////////////////// Methods ///////////////////////////////////
 public:
 
-private:
-	virtual void BeginPlay() override;
+protected:
 
+private:
 	virtual void Tick(float DeltaTime) override;
 	
-	//UPROPERTY(EditDefaultsOnly, Category = AI setup)
+/////////////////////////////////// Variables ///////////////////////////////////
+public:
+
+protected:
+
+private:
 	float acceptanceRadius = 3000.0f;
 	
 };

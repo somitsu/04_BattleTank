@@ -79,3 +79,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT75 Talking Head - Real World Skills
 * BT76 Starting From Green
 * BT77 Aiming Without the Tank
+* BT78 Finishing our Refactoring

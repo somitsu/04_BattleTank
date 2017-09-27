@@ -38,6 +38,5 @@ void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, boo
 	intendTurnRight(rotateThrow);
 	intendMoveForward(forwardThrow);
 
-	//UE_LOG(LogTemp, Warning, TEXT("Right: %f, Forward: %f"), rotateThrow, forwardThrow);
 
 }

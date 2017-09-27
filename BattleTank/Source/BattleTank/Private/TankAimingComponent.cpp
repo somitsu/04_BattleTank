@@ -6,6 +6,7 @@
 #include "Engine/World.h"
 #include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "projectile.h"
 
 
 // Sets default values for this component's properties
@@ -55,12 +56,8 @@ void UTankAimingComponent::aimAt(FVector hitLocation)
 		moveBarrelTowards(aimDirection);
 		moveTurretTowards(aimDirection);
 		// rotate x, z
-		//UE_LOG(LogTemp, Warning, TEXT("%f: aim solution found"), GetWorld()->GetTimeSeconds());
 	}
-	else
-	{
-		//UE_LOG(LogTemp, Warning, TEXT("%f: aim solution not found"), GetWorld()->GetTimeSeconds());
-	}
+
 }
 
 void UTankAimingComponent::moveBarrelTowards(FVector aimDirection)
@@ -71,10 +68,7 @@ void UTankAimingComponent::moveBarrelTowards(FVector aimDirection)
 	auto aimAsRotator = aimDirection.Rotation();
 	auto deltaRotator = aimAsRotator - barrelRotator;
 
-	//UE_LOG(LogTemp, Warning, TEXT("aimsAsRotator: %s"), *aimAsRotator.ToString());
-
 	barrel->elevate(deltaRotator.Pitch);
-
 	return;
 }
 
@@ -85,6 +79,27 @@ void UTankAimingComponent::moveTurretTowards(FVector aimDirection)
 	auto deltaRotator = aimAsRotator - turretRotator;
 
 	turret->rotate(deltaRotator.Yaw);
+
+	return;
+}
+
+void UTankAimingComponent::fire()
+{
+
+
+	if (!ensure(barrel && projectileBlueprint)) { return; }
+	bool isReloaded = (FPlatformTime::Seconds() - lastFireTime) > reloadTimeInSeconds;
+
+	if (isReloaded)
+	{
+		auto projectile = GetWorld()->SpawnActor<Aprojectile>(
+			projectileBlueprint,
+			barrel->GetSocketLocation("projectile"),
+			barrel->GetSocketRotation("projectile")
+			);
+		projectile->launchProjectile(launchSpeed);
+		lastFireTime = FPlatformTime::Seconds();
+	}
 
 	return;
 }

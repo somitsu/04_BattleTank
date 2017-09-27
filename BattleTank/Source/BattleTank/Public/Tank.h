@@ -6,43 +6,26 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
-class UTankBarrel;
-class Aprojectile;
-
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
 {
 	GENERATED_BODY()
 
+/////////////////////////////////// Methods ///////////////////////////////////
 public:
 
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	void setBarrelReference(UTankBarrel* barrelToSet);
-
-	UFUNCTION(BlueprintCallable)
-	void fire();
-
-
-
+protected:
 
 private:
 	// Sets default values for this pawn's properties
 	ATank();
 
-	virtual void BeginPlay() override;
+/////////////////////////////////// Variables ///////////////////////////////////
+public:
 
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-	TSubclassOf<Aprojectile> projectileBlueprint;
+protected:
 
-	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	float reloadTimeInSeconds = 3.0f;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	float launchSpeed = 4000.0f; // cm/s
-
-	UTankBarrel * barrel = nullptr;
-
-	double lastFireTime = 0.0;
+private:
 
 };

@@ -13,8 +13,19 @@ UCLASS(meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankTurret : public UStaticMeshComponent
 {
 	GENERATED_BODY()
+
+/////////////////////////////////// Methods ///////////////////////////////////	
 public:
 	void rotate(float relativeSpeed);
+
+protected:
+
+private:
+
+/////////////////////////////////// Variables ///////////////////////////////////
+public:
+
+protected:
 
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
