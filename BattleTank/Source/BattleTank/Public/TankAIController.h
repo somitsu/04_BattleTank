@@ -29,6 +29,7 @@ public:
 protected:
 
 private:
-	float acceptanceRadius = 3000.0f;
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float acceptanceRadius = 8000.0f;
 	
 };
