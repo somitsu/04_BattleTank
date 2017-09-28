@@ -85,7 +85,8 @@ void UTankAimingComponent::moveTurretTowards(FVector aimDirection)
 
 void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
-	if ((FPlatformTime::Seconds() - lastFireTime) < reloadTimeInSeconds)
+	if (ammoCount <= 0) { firingStatus = EFiringStatus::outOfAmmo; }
+	else if ((FPlatformTime::Seconds() - lastFireTime) < reloadTimeInSeconds)
 	{
 		firingStatus = EFiringStatus::reloading;
 	}
@@ -113,7 +114,7 @@ bool UTankAimingComponent::isBarrelMoving()
 
 void UTankAimingComponent::fire()
 {
-	if (firingStatus != EFiringStatus::reloading)
+	if ((firingStatus != EFiringStatus::reloading) && (firingStatus != EFiringStatus::outOfAmmo))
 	{
 		if (!ensure(barrel)) { return; }
 		if (!ensure(projectileBlueprint)) { return; }
@@ -124,6 +125,11 @@ void UTankAimingComponent::fire()
 			);
 		projectile->launchProjectile(launchSpeed);
 		lastFireTime = FPlatformTime::Seconds();
+		
+		//from here
+		ammoCount = FMath::Max(ammoCount-1, 0);
+
+		UE_LOG(LogTemp, Warning, TEXT("ammo: %i"), ammoCount);
 	}
 	return;
 }
@@ -131,4 +137,10 @@ void UTankAimingComponent::fire()
 EFiringStatus UTankAimingComponent::getFiringState() const
 {
 	return firingStatus;
+}
+
+
+int32 UTankAimingComponent::getAmmoCount() const
+{
+	return ammoCount;
 }
