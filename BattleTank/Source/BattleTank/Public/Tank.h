@@ -7,6 +7,9 @@
 #include "Tank.generated.h"
 
 
+class AController;
+
+
 UCLASS()
 class BATTLETANK_API ATank : public APawn
 {
@@ -14,8 +17,10 @@ class BATTLETANK_API ATank : public APawn
 
 /////////////////////////////////// Methods ///////////////////////////////////
 public:
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 protected:
+	
 
 private:
 	// Sets default values for this pawn's properties
@@ -27,5 +32,10 @@ public:
 protected:
 
 private:
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	int32 startingHealth = 100;
+
+	UPROPERTY(VisibleAnywhere, Category = "Health")
+	int32 currentHealth = startingHealth;
 
 };
