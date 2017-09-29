@@ -93,3 +93,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT89 Preparing for Particles
 * BT90 Introducing Particle Systems
 * BT91 Particle Bounding Boxes
+* BT92 Using FAttachmentTransformRules
