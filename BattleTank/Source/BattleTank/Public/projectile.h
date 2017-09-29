@@ -10,6 +10,7 @@
 class UProjectileMovementComponent;
 class UStaticMeshComponent;
 class UParticleSystemComponent;
+class URadialForceComponent;
 
 UCLASS()
 class BATTLETANK_API Aprojectile : public AActor
@@ -47,6 +48,8 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UParticleSystemComponent * impactBlast = nullptr;
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	URadialForceComponent * explosionForce = nullptr;
 
 	UProjectileMovementComponent * projectileMovement = nullptr;
 	
