@@ -4,6 +4,13 @@
 #include "Engine/World.h"
 
 
+float ATank::getHealthPercent() const
+{
+
+
+	return (float)currentHealth/(float)startingHealth;
+}
+
 // Sets default values
 ATank::ATank()
 {
@@ -19,7 +26,7 @@ float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEve
 	int32 damageToApply = FMath::Clamp(damagePoints, 0, currentHealth);
 
 	currentHealth += -damageToApply;
-	UE_LOG(LogTemp, Warning, TEXT("damage!!!: %f, Health: %f"), DamageAmount, currentHealth);
+	UE_LOG(LogTemp, Warning, TEXT("damage!!!: %f, Health: %i"), DamageAmount, currentHealth);
 
 	return damageToApply;
 }

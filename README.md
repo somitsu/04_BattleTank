@@ -97,3 +97,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT93 Radial Force & Caching
 * BT94 Using GetTimerManager()
 * BT95 Using TakeDamage() on Actors
+* BT96 BlueprintPure & Health Bars
