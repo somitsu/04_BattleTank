@@ -21,12 +21,16 @@ ATank::ATank()
 
 float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
 {
-	
+
 	int32 damagePoints = FPlatformMath::RoundToInt(DamageAmount);
 	int32 damageToApply = FMath::Clamp(damagePoints, 0, currentHealth);
 
 	currentHealth += -damageToApply;
-	UE_LOG(LogTemp, Warning, TEXT("damage!!!: %f, Health: %i"), DamageAmount, currentHealth);
+
+	if (currentHealth <= 0)
+	{
+		onDeath.Broadcast();
+	}
 
 	return damageToApply;
 }
