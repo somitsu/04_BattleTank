@@ -4,6 +4,7 @@
 #include "TankAimingComponent.h"
 #include "Engine/World.h"
 #include "Tank.h"
+//#include "GameFramework/Pawn.h"
 
 
 void ATankAIController::Tick(float DeltaTime)
@@ -41,5 +42,6 @@ void ATankAIController::SetPawn(APawn * InPawn)
 
 void ATankAIController::onPossessedTankDeath()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Recieved!"));
+	if (!GetPawn()) { return; }
+	GetPawn()->DetachFromControllerPendingDestroy();
 }

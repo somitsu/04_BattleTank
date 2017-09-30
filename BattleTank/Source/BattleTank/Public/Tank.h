@@ -30,6 +30,7 @@ protected:
 private:
 	// Sets default values for this pawn's properties
 	ATank();
+	void BeginPlay() override;
 
 /////////////////////////////////// Variables ///////////////////////////////////
 public:
@@ -41,6 +42,6 @@ private:
 	int32 startingHealth = 100;
 
 	UPROPERTY(VisibleAnywhere, Category = "Health")
-	int32 currentHealth = startingHealth;
+	int32 currentHealth;
 
 };

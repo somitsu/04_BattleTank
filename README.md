@@ -99,3 +99,4 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 * BT95 Using TakeDamage() on Actors
 * BT96 BlueprintPure & Health Bars
 * BT97 The Observer Pattern
+* BT98 Finishing Off - Part 1
